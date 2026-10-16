@@ -13,11 +13,12 @@
 // ===== CONFIGURATION: CHANGE THESE =====
 const char APN[] = "v-internet";
 const char SERVER_URL[] =
-    "https://translator-smell-modelling-acquired.trycloudflare.com/api/records"; // changes every time cloudflared is launched
+    "https://benjamin-answers-camping-materials.trycloudflare.com" // changes every time cloudflared is launched
+    "/api/records"; // same endpoint every time
 const char API_KEY[] = "forest";
 
-// Send one record every 1 sec
-const unsigned long UPLOAD_INTERVAL = 1000;
+// Send one record every 0.1 secs
+const unsigned long UPLOAD_INTERVAL = 100;
 
 // ===== STATE =====
 String modemBuffer;
@@ -369,5 +370,5 @@ void loop() {
         uploadRecord();
     }
 
-    delay(5000);
+    // delay(2500);
 }
