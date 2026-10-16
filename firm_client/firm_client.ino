@@ -15,9 +15,8 @@ const char APN[] = "v-internet";
 const char SERVER_URL[] =
     "https://translator-smell-modelling-acquired.trycloudflare.com/api/records"; // changes every time cloudflared is launched
 const char API_KEY[] = "forest";
-const char DEVICE_ID[] = "TDM2421-01";
 
-// Send one record every 30 seconds.
+// Send one record every 1 sec
 const unsigned long UPLOAD_INTERVAL = 1000;
 
 // ===== STATE =====
@@ -259,7 +258,7 @@ bool uploadRecord() {
         timestamp = buffer;
     }
 
-    String json = "{\"device_id\":\"" + String(DEVICE_ID) + "\",";
+    String json = "{";
     if (timestamp.length()) {
         json += "\"recorded_at\":\"" + timestamp + "\",";
     } else {
