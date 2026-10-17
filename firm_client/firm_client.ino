@@ -17,8 +17,8 @@ const char SERVER_URL[] =
     "/api/records"; // same endpoint every time
 const char API_KEY[] = "forest";
 
-// Send one record every 0.1 secs
-const unsigned long UPLOAD_INTERVAL = 100;
+// Send one record every 0.4 secs
+const unsigned long UPLOAD_INTERVAL = 400;
 
 // ===== STATE =====
 String modemBuffer;
@@ -117,6 +117,8 @@ bool getGPS() {
         gpsFix = false;
         return false;
     }
+    // Serial.println("# Raw GPS response:");
+    // Serial.println(response);
 
     int start = response.indexOf("+QGPSLOC:");
     if (start < 0) {
